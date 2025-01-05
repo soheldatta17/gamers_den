@@ -1,0 +1,19 @@
+/* Hide default cursor */
+body {
+  cursor: none !important;
+}
+
+/* Show default cursor for iframes and specific elements */
+iframe, 
+input, 
+textarea, 
+select {
+  cursor: auto !important;
+}
+
+/* Show pointer cursor for interactive elements */
+button,
+a,
+[role="button"] {
+  cursor: none !important;
+}
