@@ -3,6 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const upcomingGames = [
+
+  {
+    title: "Dragon's Dogma 2",
+    image: "https://media.istockphoto.com/id/1356942818/photo/dragon-breathing-fire-at-knight-in-armour-holding-up-shield-near-stone-castle.webp?s=2048x2048&w=is&k=20&c=OAfd0WjHlTqoA2h_t4UMeUvT1Yg2iBXdDfP4yRUSaP8=",
+    release: "March 2024",
+    description: "Epic fantasy RPG returns"
+  },
   {
     title: "Star Wars: Outlaws",
     image: "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -15,12 +22,6 @@ const upcomingGames = [
     release: "2024",
     description: "The next chapter in the FF7 saga"
   },
-  {
-    title: "Dragon's Dogma 2",
-    image: "https://images.unsplash.com/photo-1548484352-ea579e93aa8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    release: "March 2024",
-    description: "Epic fantasy RPG returns"
-  }
 ];
 
 const GameSlider = () => {
