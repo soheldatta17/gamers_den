@@ -9,16 +9,17 @@ interface StatItemProps {
 }
 
 const StatItem: React.FC<StatItemProps> = ({ icon, label, value }) => (
-  <motion.div 
+  <motion.div
     whileHover={{ scale: 1.05 }}
-    className="flex items-center space-x-3 bg-gray-800 p-4 rounded-lg border border-cyan-500/20"
+    className="flex items-center space-x-5 bg-gray-800 p-4 rounded-lg border border-cyan-500/20"
   >
     <div className="text-cyan-500">{icon}</div>
-    <div>
+    <div className="flex items-center space-x-3">
       <div className="text-2xl font-bold text-white">{value}</div>
-      <div className="text-sm text-gray-400">{label}</div>
+      <div className="text-md font-bold text-gray-400">{label}</div>
     </div>
   </motion.div>
+
 );
 
 const ProfileStats = () => {
