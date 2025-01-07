@@ -8,7 +8,8 @@ const CustomCursor = () => {
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
-      setIsPointer((e.target as HTMLElement)?.matches?.('button, a, [role="button"]') ?? false);
+      const target = e.target as HTMLElement;
+      setIsPointer(target?.matches?.('button, a, [role="button"]') ?? false);
     };
 
     window.addEventListener('mousemove', updatePosition);
@@ -18,7 +19,7 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed pointer-events-none z-50 mix-blend-difference"
+        className="fixed pointer-events-none z-[9999]"
         animate={{ x: position.x - 8, y: position.y - 8 }}
         transition={{ type: "spring", stiffness: 500, damping: 28 }}
       >
@@ -30,7 +31,7 @@ const CustomCursor = () => {
       </motion.div>
       {isPointer && (
         <motion.div
-          className="fixed pointer-events-none z-50"
+          className="fixed pointer-events-none z-[9999]"
           animate={{ x: position.x - 24, y: position.y - 24 }}
           transition={{ type: "spring", stiffness: 250, damping: 20 }}
         >

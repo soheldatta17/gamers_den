@@ -1,19 +1,35 @@
 export const articles = [
   {
-    id: 'starfield-review',
-    title: "Starfield: A New Era of Space Exploration Gaming",
-    excerpt: "Dive deep into Bethesda's latest epic RPG that takes you across the cosmos.",
-    content: `Bethesda's highly anticipated space RPG Starfield has finally landed, and it's nothing short of a revolutionary step forward for the genre. This massive undertaking represents not just a new IP for the studio, but a bold vision of humanity's future among the stars.
+    id: 'fifa-23',
+    title: "FIFA 23",
+    excerpt: "EA Sports' latest football simulation brings revolutionary HyperMotion2 technology and women's club football.",
+    content: `FIFA 23 marks a significant step forward for EA Sports' football franchise. The implementation of HyperMotion2 technology brings unprecedented realism to player movements and interactions on the pitch. Every tackle, sprint, and shot feels more authentic than ever before.
 
-The game's vast universe spans over 1000 explorable planets, each offering unique environments, challenges, and stories. What's truly remarkable is how Bethesda has managed to make each location feel hand-crafted despite the astronomical scale.
+The inclusion of women's club football is a welcome addition, expanding the game's scope and representation. The gameplay mechanics have been refined, with a particular emphasis on set-pieces and power shots, adding new tactical layers to matches.
 
-The combat system seamlessly blends traditional RPG elements with space combat, creating a unique experience that feels both familiar and fresh. Whether you're engaging in zero-gravity firefights or navigating asteroid fields in your customized spacecraft, the gameplay remains consistently engaging.
+Ultimate Team remains the centerpiece of FIFA 23, with meaningful improvements to chemistry systems and squad building. Career Mode has received substantial updates, making it more immersive for long-term players.
 
-Perhaps most impressive is the depth of the story and the ways in which player choice impacts the narrative. Your decisions genuinely matter, affecting not just the main storyline but the fate of entire star systems.`,
-    image: "https://images.unsplash.com/photo-1462332420958-a05d1e002413?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "1 day ago",
-    likes: 1234,
-    category: "Review",
+However, some legacy issues persist, particularly in terms of AI behavior in certain situations. Despite these minor drawbacks, FIFA 23 delivers an engaging and polished football experience that fans will appreciate.
+
+System Requirements:
+
+Minimum:
+- OS: Windows 10 64-bit
+- CPU: Intel Core i5-6600K or AMD Ryzen 5 1600
+- RAM: 8 GB
+- GPU: NVIDIA GeForce GTX 1050 Ti or AMD Radeon RX 570
+- Storage: 100 GB
+
+Recommended:
+- OS: Windows 10 64-bit
+- CPU: Intel Core i7-6700 or AMD Ryzen 7 2700X
+- RAM: 12 GB
+- GPU: NVIDIA GeForce RTX 2060 or AMD Radeon RX 5600 XT
+- Storage: 100 GB SSD`,
+    image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "3 days ago",
+    likes: 3241,
+    category: "Sports",
     author: {
       name: "Alex Chen",
       avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
@@ -21,45 +37,83 @@ Perhaps most impressive is the depth of the story and the ways in which player c
     readTime: "8 min read"
   },
   {
-    id: 'ray-tracing-evolution',
-    title: "The Evolution of Ray Tracing in Modern Gaming",
-    excerpt: "Exploring how ray tracing technology has transformed gaming graphics and what it means for the future.",
-    content: `Ray tracing has revolutionized the way we experience games, bringing unprecedented levels of visual fidelity and realism to modern titles. This technology, once considered too demanding for real-time rendering, has become a standard feature in current-generation gaming hardware.
+    id: 'spiderman-remastered',
+    title: "Marvel's Spider-Man Remastered",
+    excerpt: "Insomniac's masterpiece swings onto PC with enhanced graphics and all DLC included.",
+    content: `Marvel's Spider-Man Remastered is the definitive version of an already exceptional game. The PC port brings stunning ray-traced reflections, improved shadow quality, and unlocked framerates that make web-swinging through Manhattan more exhilarating than ever.
 
-The journey from basic reflection mapping to full ray tracing implementation showcases the rapid advancement of gaming technology. Modern games can now simulate complex light behavior, creating more immersive and realistic environments than ever before.
+The core story remains a masterpiece of superhero storytelling, balancing Peter Parker's personal life with his responsibilities as Spider-Man. Character performances are top-notch, delivering emotional weight to every scene.
 
-Game developers are finding innovative ways to balance performance with visual quality, implementing hybrid rendering solutions that combine traditional rasterization with ray-traced effects. This approach allows for stunning visuals without compromising gameplay performance.
+Combat is a highlight, offering fluid animations and countless creative ways to approach encounters. The progression system keeps things fresh throughout the 20+ hour campaign, while side activities provide meaningful diversions.
 
-The future of ray tracing looks even more promising, with new hardware advancements and software optimizations paving the way for fully path-traced games. As technology continues to evolve, we can expect even more impressive visual achievements in gaming.`,
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "2 days ago",
-    likes: 856,
-    category: "Tech",
+The inclusion of all DLC episodes in "The City That Never Sleeps" expansion adds substantial value, making this the most complete Spider-Man package available.
+
+System Requirements:
+
+Minimum:
+- OS: Windows 10 64-bit
+- CPU: Intel Core i3-4160 or AMD equivalent
+- RAM: 16 GB
+- GPU: NVIDIA GTX 950 or AMD Radeon RX 470
+- Storage: 75 GB
+
+Recommended:
+- OS: Windows 10 64-bit
+- CPU: Intel Core i5-4670 or AMD Ryzen 5 1600
+- RAM: 16 GB
+- GPU: NVIDIA GTX 1060 6GB or AMD Radeon RX 580
+- Storage: 75 GB SSD
+
+Ray Tracing:
+- CPU: Intel Core i5-8600 or AMD Ryzen 5 3600
+- GPU: NVIDIA RTX 3070 or AMD Radeon RX 6800 XT
+- RAM: 16 GB
+- Storage: 75 GB NVMe SSD`,
+    image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTUaXbOtn9e_MpJEQpce_B4wVIudectv-eCSjxIG-BCGBXxku56",
+    date: "1 week ago",
+    likes: 4187,
+    category: "Action",
     author: {
       name: "Sarah Johnson",
       avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
     },
-    readTime: "6 min read"
+    readTime: "10 min read"
   },
   {
-    id: 'e3-2024-preview',
-    title: "E3 2024: What to Expect from Gaming's Biggest Event",
-    excerpt: "Our predictions and wishlist for the upcoming E3 conference, including potential announcements and surprise reveals.",
-    content: `The gaming industry's most anticipated event is just around the corner, and this year's E3 promises to be bigger than ever. With major publishers and developers preparing their biggest announcements, we're here to break down what you can expect from this landmark event.
+    id: 'far-cry-5',
+    title: "Far Cry 5",
+    excerpt: "Ubisoft's open-world FPS takes players to the heart of Montana in a fight against a dangerous cult.",
+    content: `Far Cry 5 successfully transplants the series' signature chaos into America's heartland. Hope County, Montana, serves as an excellent backdrop for this story of resistance against a fanatical doomsday cult.
 
-Several highly anticipated titles are expected to make appearances, including the next installment in the Grand Theft Auto series and a potential new IP from FromSoftware. Nintendo might finally reveal more details about the successor to the Switch, while Sony is rumored to showcase their next-generation VR technology.
+The game shines in its moment-to-moment gameplay, offering players unprecedented freedom in approaching objectives. Whether you prefer stealthy takedowns or explosive assaults, the robust arsenal and companion system support various playstyles.
 
-Microsoft is expected to demonstrate their growing first-party game lineup following recent studio acquisitions. The showcase will likely feature extended gameplay demonstrations and release dates for several Xbox Game Studios titles.
+The antagonist, Joseph Seed, and his family of zealots make for compelling villains, though the narrative occasionally struggles with tonal consistency. Side missions provide welcome variety, from hunting dangerous wildlife to participating in demolition derbies.
 
-Independent developers will also have a stronger presence this year, with a dedicated showcase highlighting innovative games from smaller studios. This segment has historically revealed some of gaming's most creative and groundbreaking titles.`,
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-    date: "3 days ago",
-    likes: 642,
-    category: "News",
+Co-op play adds another layer of enjoyment, allowing friends to experience the entire campaign together. While some may find the formula familiar, Far Cry 5's refined mechanics and engaging world make it a worthy entry in the series.
+
+System Requirements:
+
+Minimum:
+- OS: Windows 7 SP1, Windows 8.1, Windows 10 (64-bit versions only)
+- CPU: Intel Core i5-2400 or AMD FX-6300
+- RAM: 8 GB
+- GPU: NVIDIA GeForce GTX 670 or AMD R9 270
+- Storage: 40 GB
+
+Recommended:
+- OS: Windows 10 (64-bit version only)
+- CPU: Intel Core i7-4770 or AMD Ryzen 5 1600
+- RAM: 8 GB
+- GPU: NVIDIA GeForce GTX 970 or AMD R9 290X
+- Storage: 40 GB SSD`,
+    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    date: "2 weeks ago",
+    likes: 3521,
+    category: "FPS",
     author: {
       name: "Mike Thompson",
       avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80"
     },
-    readTime: "5 min read"
+    readTime: "7 min read"
   }
 ];

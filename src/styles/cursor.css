@@ -17,3 +17,5 @@ a,
 [role="button"] {
   cursor: none !important;
 }
+
+/* Remove the pointer-events auto rule that was breaking clickability */

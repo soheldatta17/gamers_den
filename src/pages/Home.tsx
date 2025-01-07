@@ -14,7 +14,7 @@ const Home = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16"
+          className="mb-16 upcoming-games"
         >
           <h2 className="text-3xl font-bold text-white mb-8">
             Upcoming Games
@@ -26,6 +26,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
+          className="featured-articles"
         >
           <h2 className="text-3xl font-bold text-white mb-8">
             Featured Articles
