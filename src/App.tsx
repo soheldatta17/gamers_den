@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -13,10 +13,37 @@ import TourProvider from './components/TourProvider';
 import './styles/cursor.css';
 
 export default function App() {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 571);
+    };
+
+    // Set initial screen size
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  if (isSmallScreen) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+        <p>This app is only available on devices wider than 571px as its still in development phase.</p>
+      </div>
+    );
+  }
+
   return (
     <Router>
       <TourProvider>
-        <div className="min-h-screen bg-gray-900">
+        <div className="min-h-screen bg-gray-900 flex flex-col">
           <CustomCursor />
           <Navbar />
           <AnimatePresence mode="wait">
@@ -29,6 +56,9 @@ export default function App() {
               <Route path="/article/:id" element={<ArticlePage />} />
             </Routes>
           </AnimatePresence>
+          <footer className="bg-gray-800 text-center text-white py-4 mt-auto">
+            Made with ❤️ by Sohel Datta &copy; 2025
+          </footer>
         </div>
       </TourProvider>
     </Router>

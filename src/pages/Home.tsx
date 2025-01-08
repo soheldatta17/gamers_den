@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import GameSlider from '../components/GameSlider';
 import ArticleCard from '../components/ArticleCard';
-import { articles } from '../data/articles';
+import { allgames } from '../data/articles';
 
 const Home = () => {
   return (
@@ -32,14 +32,14 @@ const Home = () => {
             Featured Articles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
+            {allgames.slice(0, 3).map((article, index) => (
               <motion.div
-                key={article.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+              key={article.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
               >
-                <ArticleCard {...article} />
+              <ArticleCard {...article} />
               </motion.div>
             ))}
           </div>

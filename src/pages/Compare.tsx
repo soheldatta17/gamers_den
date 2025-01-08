@@ -74,33 +74,22 @@ const Compare = () => {
                 <div key={game.id} className="text-gray-300">{game.category}</div>
               ))}
 
-              <div className="col-span-1 font-semibold text-white">Keywords</div>
-              {selectedGameDetails.map((game) => (
-                <div key={game.id} className="flex flex-wrap gap-2">
-                  {game.keywords.map((keyword, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
-                    >
-                      {keyword}
-                    </span>
-                  ))}
-                </div>
-              ))}
+<div className="col-span-1 font-semibold text-white mb-2">Keywords</div>
+{selectedGameDetails.map((game) => (
+  <div key={game.id} className="flex flex-wrap gap-3">
+    {game.keywords.map((keyword, index) => (
+      <span
+        key={index}
+        className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-md border border-gray-600 shadow-sm"
+      >
+        {keyword}
+      </span>
+    ))}
+  </div>
+))}
 
-              <div className="col-span-1 font-semibold text-white">Similar Games</div>
-              {selectedGameDetails.map((game) => (
-                <div key={game.id} className="flex flex-wrap gap-2">
-                  {game.comparisons.map((comparison, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
-                    >
-                      {comparison}
-                    </span>
-                  ))}
-                </div>
-              ))}
+
+              
 
 
               <div className="col-span-1 font-semibold text-white">Community Rating</div>

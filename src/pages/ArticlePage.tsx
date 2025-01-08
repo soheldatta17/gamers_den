@@ -1,13 +1,12 @@
-import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ThumbsUp, Tag, GitCompare } from 'lucide-react';
-import { articles } from '../data/articles';
+import { allgames } from '../data/articles';
 import DiscussionSection from '../components/DiscussionSection';
 
 export default function ArticlePage() {
   const { id } = useParams();
-  const article = articles.find(a => a.id === id);
+  const article = allgames.find(a => a.id === id);
 
   if (!article) {
     return <div>Article not found</div>;
@@ -113,6 +112,33 @@ export default function ArticlePage() {
                 <p key={index} className="text-gray-300 mb-4">{paragraph}</p>
               ))}
             </div>
+
+            {/* Minimum & Recommended Requirements */}
+            {article.recommendedRequirements && (
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold text-cyan-500 mb-4">System Requirements</h2>
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-white mb-2">Minimum</h3>
+                  <ul className="list-disc list-inside text-gray-300">
+                    {Object.entries(article.recommendedRequirements.minimum).map(([key, value]) => (
+                      <li key={key} className="mb-1">
+                        <span className="font-medium text-cyan-400 capitalize">{key}:</span> {value}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Recommended</h3>
+                  <ul className="list-disc list-inside text-gray-300">
+                    {Object.entries(article.recommendedRequirements.recommended).map(([key, value]) => (
+                      <li key={key} className="mb-1">
+                        <span className="font-medium text-cyan-400 capitalize">{key}:</span> {value}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
 
