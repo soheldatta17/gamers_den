@@ -11,6 +11,7 @@ import ArticlePage from './pages/ArticlePage';
 import CustomCursor from './components/CustomCursor';
 import TourProvider from './components/TourProvider';
 import './styles/cursor.css';
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -34,14 +35,18 @@ export default function App() {
 
   if (isSmallScreen) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-        <p>This app is only available on devices wider than 571px as its still in development phase.</p>
-      </div>
+      <>
+        <Analytics /> {/* Analytics for small screen */}
+        <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+          <p>This app is only available on devices wider than 571px as its still in development phase.</p>
+        </div>
+      </>
     );
   }
 
   return (
     <Router>
+      <Analytics /> {/* Analytics for the main app */}
       <TourProvider>
         <div className="min-h-screen bg-gray-900 flex flex-col">
           <CustomCursor />
