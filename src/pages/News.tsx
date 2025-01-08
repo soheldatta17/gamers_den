@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import ArticleCard from '../components/ArticleCard';
+import NewsCard from '../components/NewsCard';
 
 const newsArticles = [
   {
@@ -48,7 +48,7 @@ const News = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <ArticleCard {...article} />
+              <NewsCard {...article} />
             </motion.div>
           ))}
         </div>
