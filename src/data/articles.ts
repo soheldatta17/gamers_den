@@ -166,7 +166,7 @@ export const allgames = [
     keywords: ["FPS", "Open World", "Action", "Story-driven", "Co-op"],
     comparisons: ["Far Cry 4", "Just Cause 3", "Ghost Recon: Wildlands"],
     content: "Far Cry 5 takes players to Hope County, Montana, where they must lead a resistance against the cult 'The Project at Eden's Gate.' With breathtaking landscapes, customizable gameplay, and an immersive story, the game offers unparalleled freedom and action.",
-    image: "https://images.unsplash.com/photo-1563815916012-95d5efb82f8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/552520/capsule_616x353.jpg?t=1736257710",
     date: "March 2018",
     likes: 8214,
     category: "FPS",
