@@ -1,8 +1,9 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Calendar, ThumbsUp } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, ThumbsUp, Tag, GitCompare } from 'lucide-react';
 import { articles } from '../data/articles';
+import DiscussionSection from '../components/DiscussionSection';
 
 export default function ArticlePage() {
   const { id } = useParams();
@@ -73,6 +74,40 @@ export default function ArticlePage() {
               </div>
             )}
 
+            {/* Keywords */}
+            {article.keywords && (
+              <div className="flex items-center space-x-2 mb-6">
+                <Tag size={16} className="text-cyan-500" />
+                <div className="flex flex-wrap gap-2">
+                  {article.keywords.map((keyword, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Similar Games */}
+            {article.comparisons && (
+              <div className="flex items-center space-x-2 mb-8">
+                <GitCompare size={16} className="text-cyan-500" />
+                <div className="flex flex-wrap gap-2">
+                  {article.comparisons.map((game, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full"
+                    >
+                      {game}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div className="prose prose-invert max-w-none">
               {article.content.split('\n').map((paragraph, index) => (
                 <p key={index} className="text-gray-300 mb-4">{paragraph}</p>
@@ -80,6 +115,11 @@ export default function ArticlePage() {
             </div>
           </div>
         </motion.div>
+
+        {/* Discussion Section */}
+        {article.discussions && (
+          <DiscussionSection discussions={article.discussions} />
+        )}
       </div>
     </motion.div>
   );

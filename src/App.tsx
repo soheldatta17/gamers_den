@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import News from './pages/News';
 import Reviews from './pages/Reviews';
+import Compare from './pages/Compare';
 import Profile from './pages/Profile';
 import ArticlePage from './pages/ArticlePage';
 import CustomCursor from './components/CustomCursor';
@@ -23,6 +24,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/news" element={<News />} />
               <Route path="/reviews" element={<Reviews />} />
+              <Route path="/compare" element={<Compare />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/article/:id" element={<ArticlePage />} />
             </Routes>

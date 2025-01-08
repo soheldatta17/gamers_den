@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { GamepadIcon, NewspaperIcon, TrendingUpIcon, UserIcon } from 'lucide-react';
+import { GamepadIcon, NewspaperIcon, TrendingUpIcon, UserIcon, GitCompareIcon } from 'lucide-react';
 
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -51,6 +51,17 @@ const Navbar = () => {
                 />
               </Link>
             </motion.div>
+
+            <motion.div whileHover={{ y: -2 }} className="relative group compare-link">
+              <Link to="/compare" className="flex flex-col items-center text-gray-300 hover:text-cyan-400 transition-colors">
+                <GitCompareIcon size={20} />
+                <span className="text-sm mt-1">Compare</span>
+                <motion.div
+                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-cyan-500 origin-left scale-x-0 group-hover:scale-x-100 transition-transform"
+                  initial={false}
+                />
+              </Link>
+            </motion.div>
             
             <motion.div whileHover={{ y: -2 }} className="relative group profile-link">
               <Link to="/profile" className="flex flex-col items-center text-gray-300 hover:text-cyan-400 transition-colors">
@@ -74,6 +85,10 @@ const Navbar = () => {
             <Link to="/reviews" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
               <TrendingUpIcon size={20} />
               <span className="text-lg">Reviews</span>
+            </Link>
+            <Link to="/compare" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
+              <GitCompareIcon size={20} />
+              <span className="text-lg">Compare</span>
             </Link>
             <Link to="/profile" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
               <UserIcon size={20} />
