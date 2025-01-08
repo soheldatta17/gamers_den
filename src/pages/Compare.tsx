@@ -102,10 +102,6 @@ const Compare = () => {
                 </div>
               ))}
 
-              <div className="col-span-1 font-semibold text-white">Release Date</div>
-              {selectedGameDetails.map((game) => (
-                <div key={game.id} className="text-gray-300">{game.date}</div>
-              ))}
 
               <div className="col-span-1 font-semibold text-white">Community Rating</div>
               {selectedGameDetails.map((game) => (
@@ -117,11 +113,11 @@ const Compare = () => {
               {selectedGameDetails.map((game) => (
                 <div key={game.id} className="text-gray-300">
                   <ul>
-                    <li><strong>OS:</strong> {game.requirements.minimum.os}</li>
-                    <li><strong>CPU:</strong> {game.requirements.minimum.cpu}</li>
-                    <li><strong>RAM:</strong> {game.requirements.minimum.ram}</li>
-                    <li><strong>GPU:</strong> {game.requirements.minimum.gpu}</li>
-                    <li><strong>Storage:</strong> {game.requirements.minimum.storage}</li>
+                    <li><strong>OS:</strong> {game.recommendedRequirements.minimum.os}</li>
+                    <li><strong>CPU:</strong> {game.recommendedRequirements.minimum.cpu}</li>
+                    <li><strong>RAM:</strong> {game.recommendedRequirements.minimum.ram}</li>
+                    <li><strong>GPU:</strong> {game.recommendedRequirements.minimum.gpu}</li>
+                    <li><strong>Storage:</strong> {game.recommendedRequirements.minimum.storage}</li>
                   </ul>
                 </div>
               ))}
@@ -131,11 +127,11 @@ const Compare = () => {
               {selectedGameDetails.map((game) => (
                 <div key={game.id} className="text-gray-300">
                   <ul>
-                    <li><strong>OS:</strong> {game.requirements.recommended.os}</li>
-                    <li><strong>CPU:</strong> {game.requirements.recommended.cpu}</li>
-                    <li><strong>RAM:</strong> {game.requirements.recommended.ram}</li>
-                    <li><strong>GPU:</strong> {game.requirements.recommended.gpu}</li>
-                    <li><strong>Storage:</strong> {game.requirements.recommended.storage}</li>
+                    <li><strong>OS:</strong> {game.recommendedRequirements.recommended.os}</li>
+                    <li><strong>CPU:</strong> {game.recommendedRequirements.recommended.cpu}</li>
+                    <li><strong>RAM:</strong> {game.recommendedRequirements.recommended.ram}</li>
+                    <li><strong>GPU:</strong> {game.recommendedRequirements.recommended.gpu}</li>
+                    <li><strong>Storage:</strong> {game.recommendedRequirements.recommended.storage}</li>
                   </ul>
                 </div>
               ))}
