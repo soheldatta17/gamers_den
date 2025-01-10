@@ -3,10 +3,15 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import ReviewScore from '../components/ReviewScore';
-import { allgames } from '../data/articles';
+import { Game } from '../Game';
 
+interface ReviewsProps {
+  allGames: Game[];
+  setAllGames: React.Dispatch<React.SetStateAction<Game[]>>;
+}
 
-const Reviews = () => {
+const Reviews: React.FC<ReviewsProps> = ({ allGames, setAllGames }) => {
+
   return (
     <div className="min-h-screen bg-gray-900 pt-16">
       <PageHeader
@@ -17,7 +22,7 @@ const Reviews = () => {
       
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {allgames.map((review) => (
+          {allGames.map((review) => (
             <Link to={`/article/${review.id}`} key={review.id}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

@@ -12,10 +12,15 @@ import CustomCursor from './components/CustomCursor';
 import TourProvider from './components/TourProvider';
 import './styles/cursor.css';
 import { Analytics } from "@vercel/analytics/react";
+import axios from 'axios';
+import { Game } from './Game';
 
+// Define the structure of the Game object
 export default function App() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [allGames, setAllGames] = useState<Game[]>([]); // State for storing the fetched games
 
+  // Fetch games when the component mounts
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 571);
@@ -26,6 +31,15 @@ export default function App() {
 
     // Add event listener
     window.addEventListener('resize', handleResize);
+
+    // Fetch games data
+    axios.get<Game[]>('https://gamers-den-backend.vercel.app/all_games')
+      .then(response => {
+        setAllGames(response.data); // Set the state with fetched games
+      })
+      .catch(err => {
+        console.error('Error fetching games:', err);
+      });
 
     // Cleanup event listener on component unmount
     return () => {
@@ -38,7 +52,7 @@ export default function App() {
       <>
         <Analytics /> {/* Analytics for small screen */}
         <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-          <p>This app is only available on devices wider than 571px as its still in development phase.</p>
+          <p>This app is only available on devices wider than 571px as it's still in development phase.</p>
         </div>
       </>
     );
@@ -53,12 +67,12 @@ export default function App() {
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
               <Route path="/news" element={<News />} />
-              <Route path="/reviews" element={<Reviews />} />
-              <Route path="/compare" element={<Compare />} />
+              <Route path="/reviews" element={<Reviews allGames={allGames} setAllGames={setAllGames} />} />
+              <Route path="/compare" element={<Compare allGames={allGames} setAllGames={setAllGames} />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/article/:id" element={<ArticlePage />} />
+              <Route path="/article/:id" element={<ArticlePage allGames={allGames} setAllGames={setAllGames} />} />
             </Routes>
           </AnimatePresence>
           <footer className="bg-gray-800 text-center text-white py-4 mt-auto">

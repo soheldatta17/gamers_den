@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { allgames } from '../data/articles';
 import PageHeader from '../components/PageHeader';
+import { Game } from '../Game';
 
-const Compare = () => {
+interface CompareProps {
+  allGames: Game[];
+  setAllGames: React.Dispatch<React.SetStateAction<Game[]>>;
+}
+
+const Compare: React.FC<CompareProps> = ({ allGames, setAllGames }) => {
+
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
 
   const handleGameSelect = (gameId: string) => {
@@ -14,7 +20,7 @@ const Compare = () => {
     }
   };
 
-  const selectedGameDetails = allgames.filter(game => selectedGames.includes(game.id));
+  const selectedGameDetails = allGames.filter(game => selectedGames.includes(game.id));
 
   return (
     <div className="min-h-screen bg-gray-900 pt-16">
@@ -27,7 +33,7 @@ const Compare = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Game Selection */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {allgames.map((game) => (
+          {allGames.map((game) => (
             <motion.button
               key={game.id}
               whileHover={{ scale: 1.05 }}

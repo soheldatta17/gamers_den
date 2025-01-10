@@ -3,9 +3,14 @@ import { motion } from 'framer-motion';
 import HeroSection from '../components/HeroSection';
 import GameSlider from '../components/GameSlider';
 import ArticleCard from '../components/ArticleCard';
-import { allgames } from '../data/articles';
+import { Game } from '../Game';
 
-const Home = () => {
+interface HomeProps {
+  allGames: Game[];
+  setAllGames: React.Dispatch<React.SetStateAction<Game[]>>;
+}
+
+const Home: React.FC<HomeProps> = ({ allGames, setAllGames }) => {
   return (
     <div className="min-h-screen bg-gray-900 pt-16">
       <HeroSection />
@@ -32,14 +37,14 @@ const Home = () => {
             Featured Articles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {allgames.slice(0, 3).map((article, index) => (
+            {allGames.slice(0, 3).map((article, index) => (
               <motion.div
-              key={article.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+                key={article.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
               >
-              <ArticleCard {...article} />
+                <ArticleCard {...article} />
               </motion.div>
             ))}
           </div>

@@ -17,6 +17,10 @@ const steps = [
     content: 'Check out our in-depth game reviews and ratings.',
   },
   {
+    target: '.compare-link',
+    content: 'View your profile, track your activity, and manage your preferences.',
+  },
+  {
     target: '.profile-link',
     content: 'View your profile, track your activity, and manage your preferences.',
   },

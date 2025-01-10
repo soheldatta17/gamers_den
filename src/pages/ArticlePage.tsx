@@ -1,12 +1,18 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ThumbsUp, Tag, GitCompare } from 'lucide-react';
-import { allgames } from '../data/articles';
 import DiscussionSection from '../components/DiscussionSection';
+import { Game } from '../Game';
 
-export default function ArticlePage() {
+interface ArticlePageProps {
+  allGames: Game[];
+  setAllGames: React.Dispatch<React.SetStateAction<Game[]>>;
+}
+
+export default function ArticlePage({ allGames, setAllGames }: ArticlePageProps) {
+
   const { id } = useParams();
-  const article = allgames.find(a => a.id === id);
+  const article = allGames.find(a => a.id === id);
 
   if (!article) {
     return <div>Article not found</div>;
