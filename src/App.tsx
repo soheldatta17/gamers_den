@@ -18,7 +18,8 @@ import { Game } from './Game';
 // Define the structure of the Game object
 export default function App() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [allGames, setAllGames] = useState<Game[]>([]); // State for storing the fetched games
+  const [allGames, setAllGames] = useState<Game[]>([]);
+  const [news, setNews] = useState<Game[]>([]);
 
   // Fetch games when the component mounts
   useEffect(() => {
@@ -36,6 +37,14 @@ export default function App() {
     axios.get<Game[]>('https://gamers-den-backend.vercel.app/all_games')
       .then(response => {
         setAllGames(response.data); // Set the state with fetched games
+      })
+      .catch(err => {
+        console.error('Error fetching games:', err);
+      });
+
+    axios.get<Game[]>('https://gamers-den-backend.vercel.app/news')
+      .then(response => {
+        setNews(response.data); // Set the state with fetched games
       })
       .catch(err => {
         console.error('Error fetching games:', err);
@@ -67,8 +76,8 @@ export default function App() {
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>
-              <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
-              <Route path="/news" element={<News />} />
+              <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} news={news} setNews={setNews} />} />
+              <Route path="/news" element={<News news={news} setNews={setNews}/>} />
               <Route path="/reviews" element={<Reviews allGames={allGames} setAllGames={setAllGames} />} />
               <Route path="/compare" element={<Compare allGames={allGames} setAllGames={setAllGames} />} />
               <Route path="/profile" element={<Profile />} />
