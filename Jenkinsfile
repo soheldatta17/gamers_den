@@ -2,39 +2,62 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_COMPOSE_FILE = "docker-compose.yml"
+        DOCKER_IMAGE = "gamers_den-app"
+        DOCKER_TAG = "latest"
+        DOCKER_REGISTRY = "docker.io"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the source code from the repository
-                git 'https://github.com/soheldatta17/gamers_den'
+                // Checkout the project code
+                git 'https://github.com/soheldatta17/gamers_den.git'
             }
         }
 
-        stage('Build and Run Docker Compose') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    // Build and start the services defined in docker-compose.yml
-                    sh 'docker-compose -f $DOCKER_COMPOSE_FILE up --build -d'
+                    // Build the Docker image
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG} ."
                 }
             }
         }
 
-        stage('Clean Up') {
+        stage('Run Docker Container') {
             steps {
                 script {
-                    // Clean up the Docker Compose environment after the pipeline completes
-                    sh 'docker-compose -f $DOCKER_COMPOSE_FILE down'
+                    // Run the Docker container to test the image locally
+                    sh "docker run -d -p 3000:80 ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG}"
                 }
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    // Push the Docker image to Docker Hub (optional)
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                        sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG}"
+                    }
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                // Clean up the container and image
+                sh "docker rm -f $(docker ps -aq)"
+                sh "docker rmi -f ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG}"
             }
         }
     }
 
     post {
         always {
-            cleanWs()  // Clean workspace after job completion
+            // Always clean up after the pipeline
+            sh "docker system prune -f"
         }
     }
 }
