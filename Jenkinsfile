@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "vite-app"
-        DOCKER_TAG = "latest"
+        DOCKER_COMPOSE_FILE = "docker-compose.yml"
     }
 
     stages {
@@ -14,20 +13,11 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build and Run Docker Compose') {
             steps {
                 script {
-                    // Build the Docker image using the Dockerfile in your repository
-                    sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-                }
-            }
-        }
-
-        stage('Run Docker Container') {
-            steps {
-                script {
-                    // Run the Docker container from the image you just built
-                    sh 'docker run -d -p 8080:80 $DOCKER_IMAGE:$DOCKER_TAG'
+                    // Build and start the services defined in docker-compose.yml
+                    sh 'docker-compose -f $DOCKER_COMPOSE_FILE up --build -d'
                 }
             }
         }
@@ -35,8 +25,8 @@ pipeline {
         stage('Clean Up') {
             steps {
                 script {
-                    // Clean up old containers if necessary
-                    sh 'docker ps -aq | xargs docker rm -f'
+                    // Clean up the Docker Compose environment after the pipeline completes
+                    sh 'docker-compose -f $DOCKER_COMPOSE_FILE down'
                 }
             }
         }
