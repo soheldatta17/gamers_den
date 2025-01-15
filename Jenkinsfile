@@ -1,27 +1,51 @@
 pipeline {
     agent any
+
+    environment {
+        DOCKER_IMAGE = "vite-app"
+        DOCKER_TAG = "latest"
+    }
+
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
-                checkout scm
+                // Checkout the source code from the repository
+                git 'https://github.com/soheldatta17/gamers_den'
             }
         }
+
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t vite-app .'
+                script {
+                    // Build the Docker image for the Vite app
+                    sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
+                }
             }
         }
+
         stage('Run Docker Container') {
             steps {
-                sh 'docker stop vite-container || true'  // Stop the container if already running
-                sh 'docker rm vite-container || true'    // Remove it if needed
-                sh 'docker run -d -p 8080:80 --name vite-container vite-app'
+                script {
+                    // Run the Docker container with the image built
+                    sh 'docker run -d -p 8080:80 $DOCKER_IMAGE:$DOCKER_TAG'
+                }
+            }
+        }
+
+        stage('Clean Up') {
+            steps {
+                script {
+                    // Clean up any old containers if necessary
+                    sh 'docker ps -aq | xargs docker rm -f'
+                }
             }
         }
     }
+
     post {
         always {
-            cleanWs() // Clean up the workspace after the job
+            // Clean workspace after the job is done
+            cleanWs()
         }
     }
 }
